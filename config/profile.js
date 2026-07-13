@@ -1,6 +1,6 @@
 module.exports = {
   personal: {
-    name: 'Garje Rohan Dayanand',
+    name: 'Rohan Garje',
     title: 'Final Year Information Technology Eng. Student',
     subtitles: [
       'Software Developer',
