@@ -1,0 +1,23 @@
+{
+  "name": "Rohan Garje IT Engineering Portfolio",
+  "short_name": "Rohan Portfolio",
+  "description": "Premium IT Graduate Portfolio for Rohan Garje",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a12",
+  "theme_color": "#6366f1",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/images/logo-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/logo-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}

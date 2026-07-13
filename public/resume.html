@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rohan Garje - Resume</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 11pt;
+      color: #000;
+      background: #fff;
+      padding: 0;
+    }
+
+    .page {
+      max-width: 210mm;
+      margin: 0 auto;
+      padding: 18mm 16mm 14mm;
+      min-height: 297mm;
+    }
+
+    /* ── Header ─────────────────────────────────── */
+    .resume-name {
+      text-align: center;
+      font-size: 20pt;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .resume-location {
+      text-align: center;
+      font-size: 10pt;
+      margin-bottom: 2px;
+    }
+
+    .resume-contact {
+      text-align: center;
+      font-size: 10pt;
+      margin-bottom: 14px;
+    }
+
+    /* ── Section ─────────────────────────────────── */
+    .section {
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 11pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1.5px solid #000;
+      padding-bottom: 2px;
+      margin-bottom: 6px;
+    }
+
+    .section-body {
+      padding-left: 10px;
+    }
+
+    /* ── Objective ───────────────────────────────── */
+    .objective-text {
+      font-size: 10.5pt;
+      line-height: 1.5;
+    }
+
+    /* ── Education ───────────────────────────────── */
+    .edu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 3px;
+    }
+
+    .edu-degree {
+      font-weight: bold;
+      font-size: 10.5pt;
+    }
+
+    .edu-score {
+      font-size: 10.5pt;
+      white-space: nowrap;
+    }
+
+    .edu-inst {
+      font-size: 10pt;
+      color: #222;
+      margin-bottom: 6px;
+    }
+
+    /* ── Skills ──────────────────────────────────── */
+    .skills-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10.5pt;
+    }
+
+    .skills-table td {
+      padding: 1px 6px 1px 0;
+      vertical-align: top;
+    }
+
+    .skills-table td:first-child {
+      font-weight: bold;
+      width: 90px;
+      white-space: nowrap;
+    }
+
+    /* ── Projects ────────────────────────────────── */
+    .project-title {
+      font-weight: bold;
+      font-size: 10.5pt;
+      margin-bottom: 1px;
+    }
+
+    .project-tech {
+      font-style: italic;
+      font-size: 10pt;
+      margin-bottom: 3px;
+    }
+
+    .project-desc {
+      font-size: 10.5pt;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .project-desc::before {
+      content: '· ';
+    }
+
+    /* ── Internships ─────────────────────────────── */
+    .intern-title {
+      font-weight: bold;
+      font-size: 10.5pt;
+      margin-bottom: 2px;
+    }
+
+    .intern-item {
+      font-size: 10.5pt;
+      margin-bottom: 4px;
+    }
+
+    /* ── Certs / Lists ───────────────────────────── */
+    .cert-row {
+      font-size: 10.5pt;
+      margin-bottom: 4px;
+      line-height: 1.5;
+    }
+
+    .cert-row span {
+      margin-right: 6px;
+    }
+
+    /* ── Generic list row ────────────────────────── */
+    .info-row {
+      font-size: 10.5pt;
+      margin-bottom: 3px;
+    }
+
+    .info-row span {
+      margin-right: 10px;
+    }
+
+    /* ── Declaration ─────────────────────────────── */
+    .declaration-text {
+      font-size: 10.5pt;
+      line-height: 1.6;
+    }
+
+    /* ── Print styles ────────────────────────────── */
+    @media print {
+      body { background: #fff; }
+      .page { padding: 16mm 14mm 12mm; max-width: 100%; }
+      .no-print { display: none; }
+    }
+
+    /* ── Print button (screen only) ─────────────── */
+    .print-btn {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      background: #1a1a2e;
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-family: Arial, sans-serif;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 999;
+    }
+
+    .print-btn:hover { background: #6366f1; }
+
+    /* Hide button when inside iframe */
+    @media print { .print-btn { display: none; } }
+
+    /* When loaded inside iframe, hide floating button (detected via JS below) */
+  </style>
+</head>
+<body>
+
+<button class="print-btn no-print" id="printBtn" onclick="window.print()">🖨 Print / Save as PDF</button>
+
+<script>
+  // Hide floating print button when displayed inside the portfolio iframe
+  if (window.self !== window.top) {
+    document.getElementById('printBtn').style.display = 'none';
+  }
+</script>
+
+<div class="page">
+
+  <!-- ══ HEADER ══════════════════════════════════════ -->
+  <div class="resume-name">Rohan Garje</div>
+  <div class="resume-location">Maharashtra, India</div>
+  <div class="resume-contact">+91 8698420138 &nbsp;|&nbsp; rohangarje95@gmail.com &nbsp;|&nbsp; linkedin.com/in/rohan-garje-58a6b5337</div>
+
+  <!-- ══ OBJECTIVE ═══════════════════════════════════ -->
+  <div class="section">
+    <div class="section-title">Objective</div>
+    <div class="section-body">
+      <p class="objective-text">Motivated IT engineering student seeking opportunities in Software Development and Artificial Intelligence to apply technical skills and contribute to innovative projects.</p>
+    </div>
+  </div>
+
+  <!-- ══ EDUCATION ═══════════════════════════════════ -->
+  <div class="section">
+    <div class="section-title">Education</div>
+    <div class="section-body">
+      <div class="edu-row">
+        <span class="edu-degree">B.E. (Information Technology)</span>
+        <span class="edu-score">Pursuing &nbsp;&nbsp; SGPA: 8.51</span>
+      </div>
+      <div class="edu-inst">Amrutvahini College of Engineering, Sangamner (SPPU)</div>
+
+      <div class="edu-row">
+        <span class="edu-degree">Diploma (IT) – Government Polytechnic Ambad (MSBTE)</span>
+        <span class="edu-score">83.94% (2024)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ TECHNICAL SKILLS ════════════════════════════ -->
+  <div class="section">
+    <div class="section-title">Technical Skills</div>
+    <div class="section-body">
+      <table class="skills-table">
+        <tr>
+          <td>Languages</td>
+          <td>Java, Python, C++, JavaScript, PHP</td>
+        </tr>
+        <tr>
+          <td>Web</td>
+          <td>HTML, CSS, Bootstrap, Django</td>
+        </tr>
+        <tr>
+          <td>Database</td>
+          <td>MySQL, MongoDB</td>
+        </tr>
+        <tr>
+          <td>Concepts</td>
+          <td>DSA, Machine Learning Basics</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ══ PROJECTS ════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-title">Projects</div>
+    <div class="section-body">
+      <div class="project-title">Online Interview Cheating Detection System</div>
+      <div class="project-tech">Python, Django, MySQL</div>
+      <p class="project-desc">AI-based interview monitoring system for detecting suspicious behaviour. Built using HTML, CSS, JavaScript, Python and MySQL.</p>
+
+      <div class="project-title">Car Buying and Selling Web Application</div>
+      <div class="project-tech">HTML, Javascript, PHP, MySQL</div>
+      <p class="project-desc">Developed a responsive vehicle buying and selling platform. Implemented search functionality and backend database management.</p>
+    </div>
+  </div>
+
+  <!-- ══ INTERNSHIPS ═════════════════════════════════ -->
+  <div class="section">
+    <div class="section-title">Internships</div>
+    <div class="section-body">
+      <div class="intern-title">Android Development Industrial Training</div>
+      <div class="intern-item"><strong>Full Stack Web Development with AI Tools</strong> – Next Gen Employability Program (2025–2026)</div>
+    </div>
+  </div>
+
+  <!-- ══ CERTIFICATES / REWARDS ══════════════════════ -->
+  <div class="section">
+    <div class="section-title">Certificates Rewards</div>
+    <div class="section-body">
+      <div class="cert-row">
+        <span>Cummins Scholar 2025</span> —
+        <span> AI Skills Passport</span> —
+        <span> MATLAB Onramp</span> —
+        <span> AI Skill passport Offered By EY And Microsoft</span>
+      </div>
+      <div class="cert-row">
+        <span>Machine Learning Onramp</span> —
+        <span> Google Android Development</span> —
+        <span> Checkmarx Codebashing course in .NET</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ STRENGTH ════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-title">Strength</div>
+    <div class="section-body">
+      <div class="info-row">
+        <span>Quick Learner</span> — <span> Listening</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ LANGUAGES ═══════════════════════════════════ -->
+  <div class="section">
+    <div class="section-title">Languages</div>
+    <div class="section-body">
+      <div class="info-row">
+        <span>English</span> — <span> Hindi</span> — <span> Marathi</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ DECLARATION ═════════════════════════════════ -->
+  <div class="section">
+    <div class="section-title">Declaration</div>
+    <div class="section-body">
+      <p class="declaration-text">I hereby declare that the above information is true and correct to the best of my knowledge.</p>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+</body>
+</html>

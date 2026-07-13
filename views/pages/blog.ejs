@@ -1,0 +1,32 @@
+<%- include('../layouts/head') %>
+<%- include('../layouts/header') %>
+
+<div class="inner-banner">
+  <div class="container" data-aos="fade-down">
+    <div class="inner-breadcrumbs">
+      <a href="/"><i class="fas fa-home"></i> Home</a> / Technology Blog
+    </div>
+    <h1 class="text-gradient" style="margin-top: 15px;">Insights & Writeups</h1>
+    <p style="color: var(--text-secondary);">Sharing experiments in Artificial Intelligence, Vision libraries, and Database designs.</p>
+  </div>
+</div>
+
+<section class="section" style="padding-top: 50px;">
+  <div class="container">
+    <div class="blog-list-grid">
+      <% profile.blogs.forEach((blog, idx) => { %>
+        <article class="glass-card blog-card" data-aos="fade-up" data-aos-delay="<%= idx * 150 %>">
+          <div class="blog-meta">
+            <span><i class="far fa-calendar-alt"></i> <%= blog.date %></span>
+            <span><i class="far fa-clock"></i> <%= blog.reads %></span>
+          </div>
+          <h3 style="font-family: var(--font-title); font-size: 1.5rem; font-weight:700;"><%= blog.title %></h3>
+          <p style="color: var(--text-secondary); margin-top: 8px;"><%= blog.summary %></p>
+          <a href="#"><i class="fas fa-arrow-right"></i> Read Full Article</a>
+        </article>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<%- include('../layouts/footer') %>

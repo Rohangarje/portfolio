@@ -1,0 +1,80 @@
+<%- include('../layouts/head') %>
+<%- include('../layouts/header') %>
+
+<div class="inner-banner">
+  <div class="container" data-aos="fade-down">
+    <div class="inner-breadcrumbs">
+      <a href="/"><i class="fas fa-home"></i> Home</a> / <a href="/#projects">Projects</a> / <%= project.title %>
+    </div>
+    <h1 class="text-gradient" style="margin-top: 15px;"><%= project.title %></h1>
+    <span class="tech-pill" style="border-color: var(--accent); color: var(--text-primary); font-weight: bold;">
+      <%= project.id === 'online-interview-cheating-detection' ? 'Vision-Based Security capstone' : 'Enterprise CRUD solution' %>
+    </span>
+  </div>
+</div>
+
+<section class="section" style="padding-top: 50px;">
+  <div class="container project-details-grid">
+    
+    <!-- Left detailed description -->
+    <div data-aos="zoom-in">
+      <div class="glass-card project-desc-card">
+        <div style="border-radius:12px; overflow:hidden; width:100%; height:380px; margin-bottom:30px; border: 1px solid var(--glass-border);">
+          <img src="<%= project.image %>" alt="<%= project.title %> schematic image file" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <h2>Project Overview</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 25px;"><%= project.description %></p>
+        
+        <h3 style="border-bottom: 1px solid var(--glass-border); padding-bottom: 10px; margin-bottom: 16px;"><i class="fas fa-list-check"></i> Key Engineering Features:</h3>
+        <ul class="project-feature-list">
+          <% project.features.forEach(feat => { %>
+            <% const parts = feat.split(':'); %>
+            <li>
+              <strong><%= parts[0] %>:</strong> <%= parts[1] || '' %>
+            </li>
+          <% }) %>
+        </ul>
+      </div>
+
+      <a href="/#projects" class="btn btn-secondary btn-magnetic"><i class="fas fa-chevron-left"></i> Back to Catalog</a>
+    </div>
+
+    <!-- Right specifications card -->
+    <div data-aos="fade-left">
+      <div class="glass-card project-sidebar-card" data-tilt>
+        <h3>Specifications</h3>
+        <table class="project-info-table">
+          <tr>
+            <td>Role:</td>
+            <td>Project Team Lead / Full Stack Developer</td>
+          </tr>
+          <tr>
+            <td>Platform:</td>
+            <td><%= project.id === 'online-interview-cheating-detection' ? 'Desktop / Web Platform' : 'Mobile / Responsive Web' %></td>
+          </tr>
+          <tr>
+            <td>Category:</td>
+            <td><%= project.id === 'online-interview-cheating-detection' ? 'Artificial Intelligence & Vision' : 'Database Management' %></td>
+          </tr>
+          <tr>
+            <td>Stack:</td>
+            <td style="font-size:0.85rem;"><%= project.technologies.join(', ') %></td>
+          </tr>
+          <tr>
+            <td>License:</td>
+            <td>MIT Open Source</td>
+          </tr>
+        </table>
+        
+        <div style="margin-top: 30px; display:flex; flex-direction:column; gap:16px;">
+          <a href="<%= project.github %>" target="_blank" class="btn btn-primary btn-magnetic" style="justify-content:center;"><i class="fab fa-github"></i> Repository Code</a>
+          <% if (project.live !== '#') { %>
+            <a href="<%= project.live %>" target="_blank" class="btn btn-secondary btn-magnetic" style="justify-content:center;"><i class="fas fa-external-link-alt"></i> Launch Live Model</a>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('../layouts/footer') %>

@@ -1,0 +1,673 @@
+<%- include('../layouts/head') %>
+<%- include('../layouts/header') %>
+
+<!-- Particles background hook -->
+<div id="particles-js"></div>
+
+<!-- Customizer Color Panel Drawer -->
+<div class="customizer-panel">
+  <button class="customizer-toggle" aria-label="Toggle Customizer panel"><i class="fas fa-cog"></i></button>
+  <h3>Theme Settings</h3>
+  <div class="customizer-section">
+    <h4>Accent Theme Color</h4>
+    <div class="color-palette">
+      <button class="color-dot color-indigo" aria-label="Choose Indigo Accent Theme" data-color="#6366f1"></button>
+      <button class="color-dot color-cyan" aria-label="Choose Cyan Accent Theme" data-color="#06b6d4"></button>
+      <button class="color-dot color-teal" aria-label="Choose Teal Accent Theme" data-color="#14b8a6"></button>
+      <button class="color-dot color-emerald" aria-label="Choose Emerald Accent Theme" data-color="#10b981"></button>
+      <button class="color-dot color-rose" aria-label="Choose Rose Accent Theme" data-color="#f43f5e"></button>
+      <button class="color-dot color-amber" aria-label="Choose Amber Accent Theme" data-color="#f59e0b"></button>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================================================
+     HERO SECTION
+     ========================================================================== */ -->
+<section id="home" class="hero">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <span class="hero-greet"><i class="fas fa-hand-holding-heart"></i> <%= profile.personal.greeting %></span>
+      <h1 class="hero-name text-gradient"><%= profile.personal.name %></h1>
+      
+      <!-- Typing Subtitle Hook -->
+      <div class="hero-sub">
+        <span class="typed-target" data-subtitles='<%- JSON.stringify(profile.personal.subtitles) %>'></span>
+      </div>
+      
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary btn-magnetic"><i class="fas fa-envelope"></i> Hire Me</a>
+        <a href="#projects" class="btn btn-secondary btn-magnetic"><i class="fas fa-project-diagram"></i> View Projects</a>
+        <a href="/resume.html" target="_blank" class="btn btn-primary btn-magnetic" style="background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 4px 15px rgba(16,185,129,0.35);"><i class="fas fa-file-download"></i> Download Resume</a>
+      </div>
+
+      <div class="hero-socials">
+        <span>Connect:</span>
+        <a href="<%= profile.personal.linkedin %>" target="_blank" aria-label="LinkedIn profile Link"><i class="fab fa-linkedin-in"></i></a>
+        <a href="<%= profile.personal.github %>" target="_blank" aria-label="GitHub profile Link"><i class="fab fa-github"></i></a>
+        <a href="<%= profile.personal.leetcode %>" target="_blank" aria-label="LeetCode profile Link"><i class="fas fa-terminal"></i></a>
+        <a href="<%= profile.personal.geeksforgeeks %>" target="_blank" aria-label="GeeksforGeeks Link"><i class="fas fa-graduation-cap"></i></a>
+      </div>
+    </div>
+
+    <!-- Right Blobed Photo Frame + Floating Icons -->
+    <div class="tech-orbit">
+      <div class="photo-frame">
+        <img src="<%= profile.personal.photo %>" alt="Rohan Garje Portrait image file">
+      </div>
+      <div class="floating-tech-icon icon-java" title="Java programming"><i class="fab fa-java"></i></div>
+      <div class="floating-tech-icon icon-python" title="Python Data analysis"><i class="fab fa-python"></i></div>
+      <div class="floating-tech-icon icon-react" title="React UI components"><i class="fab fa-react"></i></div>
+      <div class="floating-tech-icon icon-node" title="Node server configurations"><i class="fab fa-node-js"></i></div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>Scroll Down</span>
+    <div class="scroll-indicator-mouse">
+      <div class="scroll-indicator-wheel"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     ABOUT ME SECTION
+     ========================================================================== */ -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2>About Me</h2>
+      <p>My background, career philosophy, and long-term directions.</p>
+    </div>
+    
+    <div class="about-grid">
+      <div class="glass-card about-mission-card" data-aos="fade-right">
+        <h3><i class="fas fa-rocket"></i> My Mission</h3>
+        <p><%= profile.personal.objective %></p>
+        <hr style="border: 0; border-top: 1px solid var(--glass-border); margin: 24px 0;">
+        <h4 style="font-family: var(--font-title); margin-bottom: 12px; color: var(--text-primary);">Future Goals:</h4>
+        <ul class="about-goals-list">
+          <% profile.personal.goals.forEach(goal => { %>
+            <li><%= goal %></li>
+          <% }) %>
+        </ul>
+      </div>
+
+      <div class="about-info" data-aos="fade-left">
+        <p class="about-info-text"><%= profile.personal.bio %></p>
+        <p style="color: var(--text-secondary); margin-bottom: 30px;"><%= profile.personal.mission %></p>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <div class="glass-card" style="padding: 20px;">
+            <h4 style="color: var(--accent); margin-bottom: 8px;"><i class="fas fa-graduation-cap"></i> Academic focus</h4>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">Information Technology, Data Structures, OOP, Software Design</p>
+          </div>
+          <div class="glass-card" style="padding: 20px;">
+            <h4 style="color: var(--accent); margin-bottom: 8px;"><i class="fas fa-brain"></i> AI & ML Interests</h4>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);">Computer Vision, real-time tracking, object models classification</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     EDUCATION TIMELINE
+     ========================================================================== */ -->
+<section id="timeline" class="section">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2>Education Journey</h2>
+      <p>My academic timeline as an Information Technology Engineer.</p>
+    </div>
+
+    <div class="timeline-container">
+      <% profile.education.forEach((edu, idx) => { %>
+        <div class="timeline-item" data-aos="<%= idx % 2 === 0 ? 'fade-right' : 'fade-left' %>">
+          <div class="timeline-node"></div>
+          <div class="glass-card timeline-card" data-tilt>
+            <span class="timeline-year"><%= edu.timeline %></span>
+            <h3><%= edu.degree %></h3>
+            <div class="timeline-institution"><%= edu.institution %></div>
+            <div class="timeline-score">
+              <span style="font-size: 0.9rem; font-weight: normal; color: var(--text-muted);"><%= edu.scoreType %>:</span>
+              <span class="text-neon"><%= edu.score %></span>
+            </div>
+            <p><%= edu.achievements %></p>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     TECHNICAL SKILLS
+     ========================================================================== */ -->
+<section id="skills" class="section">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2>Technical Mastery</h2>
+      <p>Languages, frontend/backend tools, and data processing competencies.</p>
+    </div>
+
+    <div class="skills-grid">
+      <!-- Languages Card -->
+      <div class="glass-card skills-card" data-aos="fade-up">
+        <h3><i class="fas fa-code"></i> Programming</h3>
+        <div class="skill-list">
+          <% profile.skills.programming.forEach(skill => { %>
+            <div>
+              <div class="skill-info">
+                <span class="skill-name"><%= skill.name %></span>
+                <span class="skill-percent"><%= skill.level %>%</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-fill" data-percent="<%= skill.level %>%"></div>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+
+      <!-- Frontend Card -->
+      <div class="glass-card skills-card" data-aos="fade-up" data-aos-delay="100">
+        <h3><i class="fas fa-laptop-code"></i> Frontend Stack</h3>
+        <div class="skill-list">
+          <% profile.skills.frontend.forEach(skill => { %>
+            <div>
+              <div class="skill-info">
+                <span class="skill-name"><%= skill.name %></span>
+                <span class="skill-percent"><%= skill.level %>%</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-fill" data-percent="<%= skill.level %>%"></div>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+
+      <!-- Backend & DB Card -->
+      <div class="glass-card skills-card" data-aos="fade-up" data-aos-delay="200">
+        <h3><i class="fas fa-server"></i> Backend & DBs</h3>
+        <div class="skill-list">
+          <!-- Backend skills -->
+          <% profile.skills.backend.forEach(skill => { %>
+            <div>
+              <div class="skill-info">
+                <span class="skill-name"><%= skill.name %></span>
+                <span class="skill-percent"><%= skill.level %>%</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-fill" data-percent="<%= skill.level %>%"></div>
+              </div>
+            </div>
+          <% }) %>
+          <!-- Databases -->
+          <% profile.skills.database.forEach(skill => { %>
+            <div>
+              <div class="skill-info">
+                <span class="skill-name"><%= skill.name %></span>
+                <span class="skill-percent"><%= skill.level %>%</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-fill" data-percent="<%= skill.level %>%"></div>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+      
+      <!-- Core Concepts & Tools -->
+      <div class="glass-card skills-card" data-aos="fade-up" data-aos-delay="300">
+        <h3><i class="fas fa-tools"></i> Concepts & Tools</h3>
+        <div class="skill-list">
+          <% profile.skills.concepts.slice(0, 3).forEach(skill => { %>
+            <div>
+              <div class="skill-info">
+                <span class="skill-name"><%= skill.name %></span>
+                <span class="skill-percent"><%= skill.level %>%</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-fill" data-percent="<%= skill.level %>%"></div>
+              </div>
+            </div>
+          <% }) %>
+          <% profile.skills.tools.slice(0, 3).forEach(skill => { %>
+            <div>
+              <div class="skill-info">
+                <span class="skill-name"><%= skill.name %></span>
+                <span class="skill-percent"><%= skill.level %>%</span>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-fill" data-percent="<%= skill.level %>%"></div>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     FEATURED PROJECTS SECTION
+     ========================================================================== */ -->
+<section id="projects" class="section">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2>Featured Works</h2>
+      <p>Practical software builds proving engineering capacity.</p>
+    </div>
+
+    <div class="projects-grid">
+      <% profile.projects.forEach((proj, idx) => { %>
+        <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="<%= idx * 150 %>" data-tilt>
+          <div class="project-img-wrapper">
+            <img src="<%= proj.image %>" alt="<%= proj.title %> image blueprint">
+            <span class="project-tag-overlay"><%= proj.id === 'online-interview-cheating-detection' ? 'AI / Vision' : 'Web App' %></span>
+          </div>
+          <div class="project-body">
+            <h3><%= proj.title %></h3>
+            <p><%= proj.description %></p>
+            
+            <div class="project-tech">
+              <% proj.technologies.forEach(tech => { %>
+                <span class="tech-pill"><%= tech %></span>
+              <% }) %>
+            </div>
+
+            <div class="project-links">
+              <a href="/project/<%= proj.id %>" class="btn btn-secondary btn-magnetic" style="padding: 8px 18px; font-size: 0.85rem;"><i class="fas fa-info-circle"></i> Info</a>
+              <a href="<%= proj.github %>" target="_blank" class="btn btn-secondary btn-magnetic" style="padding: 8px 18px; font-size: 0.85rem;"><i class="fab fa-github"></i> Code</a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     CERTIFICATIONS SWIPER
+     ========================================================================== */ -->
+<section id="certifications" class="section">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2><i class="fas fa-award" style="color: var(--accent); margin-right: 10px;"></i>Certifications</h2>
+      <p>Industry and academic credentials earned through training and coursework.</p>
+    </div>
+
+    <div class="swiper swiper-container certifications-swiper" data-aos="fade-up">
+      <div class="swiper-wrapper">
+        <% profile.certifications.forEach(cert => { %>
+          <div class="swiper-slide glass-card cert-card" data-name="<%= cert.name %>" data-auth="<%= cert.authority %>" data-id="<%= cert.id %>" data-image="<%= cert.image || '' %>">
+            <% if (cert.image) { %>
+              <!-- Certificate full image -->
+              <div class="cert-thumb-wrap">
+                <img src="<%= cert.image %>" alt="<%= cert.name %> certificate preview" class="cert-thumb-img">
+                <div class="cert-thumb-overlay"><i class="fas fa-expand-alt"></i> View Full</div>
+              </div>
+            <% } else { %>
+              <i class="fas fa-certificate"></i>
+            <% } %>
+            <h3><%= cert.name %></h3>
+            <p><%= cert.authority %></p>
+            <div class="cert-view-label"><i class="fas fa-<%= cert.image ? 'image' : 'certificate' %>"></i> <%= cert.image ? 'View Certificate' : 'View Details' %></div>
+          </div>
+        <% }) %>
+      </div>
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Certification Modal view box -->
+<div class="modal" id="certModal">
+  <div class="glass-card modal-content" style="max-width: 600px; width: 90%;">
+    <button class="modal-close" id="closeCertModalBtn1" aria-label="Close cert modal"><i class="fas fa-times"></i></button>
+    <i class="fas fa-award" style="font-size: 2.2rem; color: var(--accent); margin-bottom: 12px; display: block; text-align: center;"></i>
+    <h3 id="modalCertName">Certificate Name</h3>
+    <p id="modalCertAuth" style="color: var(--text-secondary); margin-bottom: 15px; text-align: center;">Authority</p>
+    
+    <!-- image preview zone -->
+    <div id="modalCertImgContainer" style="display: none; margin-bottom: 20px; border-radius: 8px; overflow: hidden; border: 1px solid var(--glass-border); background: rgba(0,0,0,0.2);">
+      <img id="modalCertImg" src="" alt="Certificate Image Preview" style="width: 100%; height: auto; display: block; object-fit: contain; max-height: 350px;">
+    </div>
+
+    <div class="modal-metadata">
+      <strong>License Reference:</strong> <span id="modalCertId">CUM-2023-882</span>
+    </div>
+    
+    <div style="display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap;">
+      <a id="modalCertOpenImgBtn" href="" target="_blank" class="btn btn-primary" style="display: none; padding: 10px 20px;"><i class="fas fa-external-link-alt"></i> Open Full View</a>
+      <button class="btn btn-secondary" id="closeCertModalBtn2" style="padding: 10px 20px;"><i class="fas fa-times-circle"></i> Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================================================
+     ACHIEVEMENTS, RESEARCH & LEADERSHIP
+     ========================================================================== */ -->
+<section id="achievements" class="section">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2>Success Matrix</h2>
+      <p>Research publications, leadership outputs, and competitive records.</p>
+    </div>
+
+    <!-- Stats & Achievements counter Cards -->
+    <div class="stat-grid">
+      <div class="glass-card stat-card" data-aos="zoom-in" data-tilt>
+        <div class="stat-number">8+</div>
+        <div class="stat-title">Certifications</div>
+        <div class="stat-desc">Comprehensive industrial & academic credentials.</div>
+      </div>
+      <div class="glass-card stat-card" data-aos="zoom-in" data-aos-delay="100" data-tilt>
+        <div class="stat-number">15+</div>
+        <div class="stat-title">Repositories</div>
+        <div class="stat-desc">Open-source public logs on GitHub.</div>
+      </div>
+      <div class="glass-card stat-card" data-aos="zoom-in" data-aos-delay="200" data-tilt>
+        <div class="stat-number">8.57</div>
+        <div class="stat-title">Engineering CGPA</div>
+        <div class="stat-desc">TE Distinction class, ranked top-tier on campus.</div>
+      </div>
+      <div class="glass-card stat-card" data-aos="zoom-in" data-aos-delay="300" data-tilt>
+        <div class="stat-number">215+</div>
+        <div class="stat-title">LeetCode Solves</div>
+        <div class="stat-desc">Optimizing algorithm runtimes.</div>
+      </div>
+    </div>
+
+    <!-- Research and Leadership rows -->
+    <div style="margin-top: 60px; display: grid; grid-template-columns: 1.12fr 0.88fr; gap: 40px; align-items: start;">
+      
+      <!-- Research & Innovation -->
+      <div class="glass-card" style="padding: 40px;" data-role="research" data-aos="fade-right">
+        <h3 style="font-family: var(--font-title); font-size: 1.8rem; margin-bottom: 16px; color: var(--accent);"><i class="fas fa-lightbulb"></i> Research & Innovation</h3>
+        <h4 style="font-family: var(--font-title); font-size: 1.25rem; margin-bottom: 8px;"><%= profile.research.title %></h4>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 24px;"><%= profile.research.desc %></p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <% profile.research.interests.forEach(interest => { %>
+            <span class="tech-pill" style="border-color: var(--accent);"><%= interest %></span>
+          <% }) %>
+        </div>
+      </div>
+
+      <!-- Leadership -->
+      <div data-aos="fade-left">
+        <h3 style="font-family: var(--font-title); font-size: 1.8rem; margin-bottom: 20px;"><i class="fas fa-users-cog"></i> Leadership</h3>
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <% profile.leadership.forEach(lead => { %>
+            <div class="glass-card leadership-card">
+              <h4><%= lead.role %></h4>
+              <p><%= lead.desc %></p>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coding Profiles & simulated GitHub Chart -->
+    <div class="coding-profiles-container" data-aos="fade-up">
+      <!-- Coding Stats List -->
+      <div>
+        <h3 style="font-family: var(--font-title); font-size: 1.8rem; margin-bottom: 25px;"><i class="fas fa-laptop-code"></i> Coding Stats</h3>
+        <div class="coding-profiles-icons">
+          <a href="<%= profile.personal.github %>" class="glass-card coding-icon-card">
+            <i class="fab fa-github"></i>
+            <span>GitHub</span>
+            <small style="color: var(--text-muted); font-size: 0.75rem; margin-top: 4px;">650+ Commits</small>
+          </a>
+          <a href="<%= profile.personal.leetcode %>" class="glass-card coding-icon-card">
+            <i class="fas fa-laptop"></i>
+            <span>LeetCode</span>
+            <small style="color: var(--text-muted); font-size: 0.75rem; margin-top: 4px;">Rating: 1620</small>
+          </a>
+          <a href="<%= profile.personal.codechef %>" class="glass-card coding-icon-card">
+            <i class="fas fa-utensils"></i>
+            <span>CodeChef</span>
+            <small style="color: var(--text-muted); font-size: 0.75rem; margin-top: 4px;">3 Star</small>
+          </a>
+        </div>
+      </div>
+
+      <!-- Simulated Contribution Chart -->
+      <div class="glass-card github-chart" data-tilt>
+        <h4 style="font-family: var(--font-title); font-size: 1.1rem; text-align: left; margin-bottom: 5px;"><i class="fab fa-github"></i> github.com/rohangarje</h4>
+        <p style="font-size: 0.75rem; color: var(--text-muted); text-align: left; margin-bottom: 15px;">652 contributions in the last year</p>
+        <div class="github-chart-mock">
+          <!-- 20 grid bars that animate height with JS -->
+          <div class="chart-bar fill" data-height="40px"></div>
+          <div class="chart-bar fill high" data-height="90px"></div>
+          <div class="chart-bar" data-height="15px"></div>
+          <div class="chart-bar fill" data-height="65px"></div>
+          <div class="chart-bar fill" data-height="50px"></div>
+          <div class="chart-bar" data-height="25px"></div>
+          <div class="chart-bar fill high" data-height="80px"></div>
+          <div class="chart-bar fill" data-height="45px"></div>
+          <div class="chart-bar fill" data-height="70px"></div>
+          <div class="chart-bar" data-height="10px"></div>
+          <div class="chart-bar fill" data-height="55px"></div>
+          <div class="chart-bar fill" data-height="60px"></div>
+          <div class="chart-bar fill high" data-height="95px"></div>
+          <div class="chart-bar" data-height="30px"></div>
+          <div class="chart-bar fill" data-height="40px"></div>
+          <div class="chart-bar fill" data-height="72px"></div>
+          <div class="chart-bar" data-height="8px"></div>
+          <div class="chart-bar fill" data-height="50px"></div>
+          <div class="chart-bar fill high" data-height="85px"></div>
+          <div class="chart-bar fill" data-height="60px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ==========================================================================
+     GALLERY SECTION
+     ========================================================================== */ -->
+<section id="gallery" class="section">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2>Campus & Event log</h2>
+      <p>Portrayals of college workshops, seminars, and organizational visits.</p>
+    </div>
+
+    <div class="gallery-grid">
+      <% (profile.gallery || []).forEach((item, idx) => { %>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="<%= idx * 100 %>">
+          <img src="<%= item.image %>" alt="<%= item.title %> event snapshot">
+          <div class="gallery-overlay">
+            <h4><%= item.title %></h4>
+            <p><%= item.desc %></p>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     EXTRA CURRICULAR ACTIVITIES
+     ========================================================================== */ -->
+<section id="extracurricular" class="section">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2>Extra Curriculars</h2>
+      <p>Passions and hobbies keeping life and skills creative.</p>
+    </div>
+
+    <div class="leaderships-grid">
+      <div class="glass-card leadership-card" data-aos="fade-up">
+        <h4 style="color: var(--accent);"><i class="fas fa-book-reader"></i> Literary Reading</h4>
+        <p>Enjoys reviewing technical newsletters, architectural writeups, and biography profiles.</p>
+      </div>
+      <div class="glass-card leadership-card" data-aos="fade-up" data-aos-delay="100">
+        <h4 style="color: var(--accent);"><i class="fas fa-baseball-ball"></i> Playing Cricket</h4>
+        <p>Acted as sub-captain for G. P. Pune departmental sports weeks.</p>
+      </div>
+      <div class="glass-card leadership-card" data-aos="fade-up" data-aos-delay="200">
+        <h4 style="color: var(--accent);"><i class="fas fa-hands-helping"></i> Community Tech support</h4>
+        <p>Volunteering in teaching basic desktop usage standards to secondary schools.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     CONTACT SECTION WITH FORM
+     ========================================================================== */ -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <h2>Get In touch</h2>
+      <p>Have an project, opportunity, or inquiry? Message directly.</p>
+    </div>
+
+    <div class="contact-layout">
+      <!-- Contact details -->
+      <div class="contact-info-list" data-aos="fade-right">
+        <div class="contact-info-tile">
+          <div class="contact-icon-frame"><i class="fas fa-envelope"></i></div>
+          <div>
+            <div class="contact-label">Email Address</div>
+            <a href="mailto:<%= profile.personal.email %>" class="contact-value"><%= profile.personal.email %></a>
+          </div>
+        </div>
+
+        <div class="contact-info-tile">
+          <div class="contact-icon-frame"><i class="fas fa-phone-alt"></i></div>
+          <div>
+            <div class="contact-label">Contact Number</div>
+            <a href="tel:<%= profile.personal.phone %>" class="contact-value"><%= profile.personal.phone %></a>
+          </div>
+        </div>
+
+        <div class="contact-info-tile">
+          <div class="contact-icon-frame"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <div class="contact-label">Location</div>
+            <div class="contact-value"><%= profile.personal.location %></div>
+          </div>
+        </div>
+
+        <!-- Dynamic Pune city Maps Embed -->
+        <div class="map-embed">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121059.04360814986!2d73.79013627546377!3d18.52460341775796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Pune geography coordinates map locate frame">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Contact Form card -->
+      <div class="glass-card contact-form" data-aos="fade-left">
+        <form id="portfolioContactForm" novalidate>
+          <div class="form-group-row">
+            <div class="form-group">
+              <label for="contactName">Your Name <span style="color:#ef4444;">*</span></label>
+              <input type="text" id="contactName" name="name" class="form-control" placeholder="Rohan Garje" required>
+            </div>
+            <div class="form-group">
+              <label for="contactEmail">Your Email <span style="color:#ef4444;">*</span></label>
+              <input type="email" id="contactEmail" name="email" class="form-control" placeholder="example@domain.com" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="contactSubject">Subject Of Inquiry</label>
+            <input type="text" id="contactSubject" name="subject" class="form-control" placeholder="Internship Offer / Website Project">
+          </div>
+
+          <div class="form-group">
+            <label for="contactMessage">Your Message <span style="color:#ef4444;">*</span></label>
+            <textarea id="contactMessage" name="message" class="form-control" placeholder="Hi Rohan, we reviewed your cheating detector project..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-magnetic" style="width:100%; justify-content:center;"><i class="fas fa-paper-plane"></i> Send Message</button>
+          
+          <div id="formResponseMsg" class="form-response-msg"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Inline script for Swiper modal trigger -->
+<script>
+  function openCertModal(name, auth, id, image) {
+    const modal = document.getElementById('certModal');
+    document.getElementById('modalCertName').innerText = name;
+    document.getElementById('modalCertAuth').innerText = auth;
+    document.getElementById('modalCertId').innerText = id || 'N/A';
+    
+    const imgContainer = document.getElementById('modalCertImgContainer');
+    const imgEl = document.getElementById('modalCertImg');
+    const openBtn = document.getElementById('modalCertOpenImgBtn');
+    
+    if (image && image.trim() !== '') {
+      imgEl.src = image;
+      imgContainer.style.display = 'block';
+      openBtn.href = image;
+      openBtn.style.display = 'inline-flex';
+    } else {
+      imgEl.src = '';
+      imgContainer.style.display = 'none';
+      openBtn.href = '';
+      openBtn.style.display = 'none';
+    }
+    
+    if (modal) {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Stop background scroll
+    }
+  }
+
+  function closeCertModal() {
+    const modal = document.getElementById('certModal');
+    if (modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto'; // Resume scroll
+    }
+  }
+
+  // Bind non-inline event listeners (CSP Compliant)
+  window.addEventListener('DOMContentLoaded', () => {
+    // Bind cards click
+    document.querySelectorAll('.cert-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const name = card.getAttribute('data-name');
+        const auth = card.getAttribute('data-auth');
+        const id = card.getAttribute('data-id');
+        const image = card.getAttribute('data-image');
+        openCertModal(name, auth, id, image);
+      });
+    });
+
+    // Bind close actions
+    const closeBtn1 = document.getElementById('closeCertModalBtn1');
+    const closeBtn2 = document.getElementById('closeCertModalBtn2');
+    if (closeBtn1) closeBtn1.addEventListener('click', closeCertModal);
+    if (closeBtn2) closeBtn2.addEventListener('click', closeCertModal);
+
+    // Close modal on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeCertModal();
+    });
+  });
+</script>
+
+<%- include('../layouts/footer') %>

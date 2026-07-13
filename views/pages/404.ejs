@@ -1,0 +1,15 @@
+<%- include('../layouts/head') %>
+<%- include('../layouts/header') %>
+
+<section class="section" style="min-height: 90vh; display: flex; justify-content: center; align-items: center; text-align: center;">
+  <div class="container" style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+    <div class="graphic-404">404</div>
+    <h1 style="font-family: var(--font-title); font-size: 2.2rem; font-weight: 800;">System Route Missing</h1>
+    <p style="color: var(--text-secondary); max-width: 480px; margin-bottom: 20px;">
+      <%= typeof message !== 'undefined' ? message : 'The endpoint directory details could not be parsed dynamically. Please check connection paths.' %>
+    </p>
+    <a href="/" class="btn btn-primary btn-magnetic"><i class="fas fa-undo"></i> Return Home</a>
+  </div>
+</section>
+
+<%- include('../layouts/footer') %>

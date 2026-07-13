@@ -1,0 +1,85 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <i class="fas fa-code"></i> Rohan<span>.</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="/#home">Home</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#projects">Projects</a></li>
+        <li><a href="/#timeline">Education</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <%= new Date().getFullYear(); %> Rohan Garje. Designed with a premium Glassmorphic stack.</p>
+      <div style="display: flex; gap: 20px; align-items: center;">
+        <span style="font-size: 0.8rem; color: var(--text-muted);">Visitor #<span id="visitorCounter" style="color: var(--accent); font-weight: 700;"><%= typeof visitorCount !== 'undefined' ? visitorCount : '105' %></span></span>
+        <button class="btn-totop btn-magnetic" id="backToTopBtn" aria-label="Back to Top return top button">
+          <i class="fas fa-arrow-up"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- CDN Scripts Imports -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+<!-- Custom Config and Action scripts -->
+<script src="/js/particles-config.js"></script>
+<script>
+  // Bind Particle lines canvas
+  if (typeof particlesJS !== 'undefined') {
+    particlesJS('particles-js', particlesConfig);
+  }
+
+  // Smooth scroll back-to-top button interaction
+  const backToTopBtn = document.getElementById('backToTopBtn');
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+      if (typeof lenis !== 'undefined') {
+        lenis.scrollTo(0);
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backToTopBtn.style.opacity = '1';
+        backToTopBtn.style.pointerEvents = 'auto';
+      } else {
+        backToTopBtn.style.opacity = '0';
+        backToTopBtn.style.pointerEvents = 'none';
+      }
+    });
+  }
+</script>
+<script src="/js/main.js"></script>
+<script src="/js/animations.js"></script>
+
+<!-- Register simple Service Worker for offline PWA support -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').then(reg => {
+        console.log('📶 Service worker registered successfully for offline support.');
+      }).catch(err => {
+        console.warn('⚠️ Service worker registration failed: ', err);
+      });
+    });
+  }
+</script>
+
+</body>
+</html>

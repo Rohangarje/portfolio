@@ -1,0 +1,108 @@
+<%- include('../layouts/head') %>
+<%- include('../layouts/header') %>
+
+<div class="inner-banner">
+  <div class="container" data-aos="fade-down">
+    <div class="inner-breadcrumbs">
+      <a href="/"><i class="fas fa-home"></i> Home</a> / Admin Panel
+    </div>
+    <h1 class="text-gradient" style="margin-top: 15px;">Admin Control Center</h1>
+    <p style="color: var(--text-secondary);">Manage inquiries, inspect database states, and evaluate portfolio interactions.</p>
+  </div>
+</div>
+
+<section class="section" style="padding-top: 50px; min-height: 60vh;">
+  <div class="container">
+    
+    <% if (!isAuthorized) { %>
+      <!-- Login Interface -->
+      <div class="glass-card admin-login-layout" data-aos="zoom-in" data-tilt>
+        <i class="fas fa-shield-alt" style="font-size: 3rem; color: var(--accent); margin-bottom: 20px;"></i>
+        <h2>Security Authorization</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.9rem;">
+          Access to this dashboard is protected. Submitting inquiries dynamically logs messages here.
+        </p>
+        
+        <form action="/admin" method="GET">
+          <div class="form-group" style="text-align: left;">
+            <label for="adminPass">Administration Key</label>
+            <input type="password" id="adminPass" name="password" class="form-control" placeholder="••••••••" required>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;"><i class="fas fa-sign-in-alt"></i> Access Dashboard</button>
+        </form>
+        
+        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top:20px; background-color: var(--bg-tertiary); padding: 8px; border-radius: 8px; border: 1px dashed var(--glass-border);">
+          <strong>Hint Key:</strong> Enter <code>admin123</code> to access.
+        </div>
+      </div>
+      
+    <% } else { %>
+      <!-- Admin Dashboard panel -->
+      <div class="glass-card admin-inquiries-card" data-aos="fade-up">
+        
+        <div class="admin-header-row">
+          <div>
+            <h2 style="font-family: var(--font-title); font-size:1.8rem;"><i class="fas fa-inbox"></i> Inbound Messages</h2>
+            <p style="color: var(--text-secondary); font-size:0.9rem; margin-top:4px;">
+              System Storage: <span class="admin-db-status"><%= databaseType %></span>
+            </p>
+          </div>
+          <a href="/admin/clear" class="btn btn-secondary btn-magnetic" style="padding: 8px 18px; font-size: 0.85rem;"><i class="fas fa-sign-out-alt"></i> Lock Console</a>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px;">
+          <div class="glass-card" style="padding: 15px 20px; background-color: var(--bg-primary);">
+            <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Total Messages</div>
+            <div style="font-size: 1.8rem; font-weight: bold; color: var(--accent);"><%= submissions.length %></div>
+          </div>
+          <div class="glass-card" style="padding: 15px 20px; background-color: var(--bg-primary);">
+            <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">System Health</div>
+            <div style="font-size: 1.8rem; font-weight: bold; color: #10b981;">Online</div>
+          </div>
+        </div>
+
+        <% if (submissions.length === 0) { %>
+          <div style="text-align: center; padding: 40px; border: 1px dashed var(--glass-border); border-radius: 12px;">
+            <i class="far fa-folder-open" style="font-size: 2.5rem; color: var(--text-muted); margin-bottom: 12px;"></i>
+            <h4>No Contact inquiries recorded yet.</h4>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 4px;">Use the contact form on the home page to test this dashboard.</p>
+          </div>
+        <% } else { %>
+          <!-- Responsive message list -->
+          <div class="admin-table-container">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Sender Info</th>
+                  <th>Subject</th>
+                  <th>Message details</th>
+                  <th>Timestamp</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% submissions.forEach(sub => { %>
+                  <tr>
+                    <td style="white-space: nowrap;">
+                      <strong><%= sub.name %></strong><br>
+                      <a href="mailto:<%= sub.email %>" style="color: var(--accent); font-size: 0.8rem;"><%= sub.email %></a>
+                    </td>
+                    <td><%= sub.subject %></td>
+                    <td style="max-width: 300px; font-style: italic; color: var(--text-secondary);">
+                      <%= sub.message %>
+                    </td>
+                    <td style="white-space: nowrap; font-size: 0.8rem;">
+                      <%= new Date(sub.createdAt).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) %>
+                    </td>
+                  </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+        <% } %>
+      </div>
+    <% } %>
+
+  </div>
+</section>
+
+<%- include('../layouts/footer') %>
