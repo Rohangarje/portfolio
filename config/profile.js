@@ -127,6 +127,22 @@ module.exports = {
       image: '/images/project2.jpg',
       github: 'https://github.com/rohangarje/car-buying-selling-system',
       live: '#'
+    },
+    {
+      id: 'student-placement-predictor',
+      title: 'Student Placement Predictor',
+      description: 'An AI-powered full-stack web application that predicts student placement outcomes using multiple ML classifiers. Features an interactive performance dashboard with accuracy charts, confusion matrices, feature importance, and model comparison tables.',
+      technologies: ['Python', 'FastAPI', 'React.js', 'Scikit-learn', 'Pandas', 'Plotly', 'Railway'],
+      features: [
+        'Multi-model prediction: Compares Logistic Regression, Decision Tree, Random Forest (100% acc), and KNN (92.70%)',
+        'Interactive charts: Accuracy comparison bars, Train vs Test plots, and Radar key-metrics chart',
+        'Confusion Matrix: Per-model visual breakdown of classification predictions',
+        'Feature Importance: Identifies top factors like Communication Skills, Projects, and Backlogs',
+        'Live deployment: Production app hosted on Railway with real-time inference API'
+      ],
+      image: '/images/project3.png',
+      github: 'https://github.com/rohangarje/StudentPlacementPrediction',
+      live: 'https://student-placement-prediction.up.railway.app'
     }
   ],
   internships: [

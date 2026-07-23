@@ -267,7 +267,7 @@
         <div class="glass-card project-card" data-aos="fade-up" data-aos-delay="<%= idx * 150 %>" data-tilt>
           <div class="project-img-wrapper">
             <img src="<%= proj.image %>" alt="<%= proj.title %> image blueprint">
-            <span class="project-tag-overlay"><%= proj.id === 'online-interview-cheating-detection' ? 'AI / Vision' : 'Web App' %></span>
+            <span class="project-tag-overlay"><%= proj.id === 'online-interview-cheating-detection' ? 'AI / Vision' : proj.id === 'student-placement-predictor' ? 'AI / ML' : 'Web App' %></span>
           </div>
           <div class="project-body">
             <h3><%= proj.title %></h3>

@@ -8,7 +8,7 @@
     </div>
     <h1 class="text-gradient" style="margin-top: 15px;"><%= project.title %></h1>
     <span class="tech-pill" style="border-color: var(--accent); color: var(--text-primary); font-weight: bold;">
-      <%= project.id === 'online-interview-cheating-detection' ? 'Vision-Based Security capstone' : 'Enterprise CRUD solution' %>
+      <%= project.id === 'online-interview-cheating-detection' ? 'Vision-Based Security capstone' : project.id === 'student-placement-predictor' ? 'AI/ML Placement Analytics App' : 'Enterprise CRUD solution' %>
     </span>
   </div>
 </div>
@@ -50,11 +50,11 @@
           </tr>
           <tr>
             <td>Platform:</td>
-            <td><%= project.id === 'online-interview-cheating-detection' ? 'Desktop / Web Platform' : 'Mobile / Responsive Web' %></td>
+            <td><%= project.id === 'online-interview-cheating-detection' ? 'Desktop / Web Platform' : project.id === 'student-placement-predictor' ? 'Full-Stack Web Application' : 'Mobile / Responsive Web' %></td>
           </tr>
           <tr>
             <td>Category:</td>
-            <td><%= project.id === 'online-interview-cheating-detection' ? 'Artificial Intelligence & Vision' : 'Database Management' %></td>
+            <td><%= project.id === 'online-interview-cheating-detection' ? 'Artificial Intelligence & Vision' : project.id === 'student-placement-predictor' ? 'Machine Learning & Data Science' : 'Database Management' %></td>
           </tr>
           <tr>
             <td>Stack:</td>
