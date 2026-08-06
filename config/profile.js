@@ -153,7 +153,7 @@ module.exports = {
     { name: 'Cummins Scholar 2025 (Laptop Award)', authority: 'Cummins India Foundation', id: 'Nurturing Brilliance AY 2025-26', image: '/images/cert_cummins.png' },
     { name: 'Full Stack Web Development with AI Tools', authority: 'Edunet Foundation, EY & AICTE', id: 'NG26_55508', image: '/images/cert_edunet.png' },
     { name: 'AI Skills Passport', authority: 'EY and Microsoft', id: 'EYMS-AI-PASSPORT', image: '/images/cert_ey_microsoft.png' },
-    { name: 'Checkmarx Codebashing .NET', authority: 'Checkmarx', id: 'd9efd346186a1c60fd552d88f52bb8efacc70b7e', image: '/images/cert_checkmarx.png' },
+    { name: 'Checkmarx Codebashing Java', authority: 'Checkmarx', id: 'd9efd346186a1c60fd552d88f52bb8efacc70b7e', image: '/images/cert_checkmarx.png' },
     { name: 'AI & Innovation Sprints: Rapid Prototyping', authority: 'Amrutvahini College of Engineering', id: 'AVCOE-E&TC-SPRINT-2026', image: '/images/cert_amrutvahini.png' },
     { name: 'Android Development Training', authority: 'MountReach Solutions Pvt. Ltd.', id: 'JJMS45182', image: '/images/cert_android.png' },
     { name: 'MATLAB Onramp', authority: 'MathWorks', id: 'MAT-ON-110' },

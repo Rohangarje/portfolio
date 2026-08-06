@@ -2093,6 +2093,11 @@ textarea.form-control {
   .contact-layout {
     grid-template-columns: 1fr;
   }
+  
+  .project-details-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -2145,6 +2150,29 @@ textarea.form-control {
   .form-group-row {
     grid-template-columns: 1fr;
     gap: 0;
+  }
+  
+  .project-desc-card,
+  .project-sidebar-card {
+    padding: 24px;
+  }
+  
+  .project-desc-card img,
+  .project-img-wrapper img {
+    min-height: 220px;
+  }
+  
+  .project-body {
+    padding: 18px;
+  }
+  
+  .project-card {
+    min-height: auto;
+  }
+  
+  .project-info-table td {
+    padding: 10px 0;
+    font-size: 0.9rem;
   }
 }
 
