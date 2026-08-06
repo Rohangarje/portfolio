@@ -34,8 +34,8 @@ module.exports = {
       institution: 'Amrutvahini College of Engineering, Sangamner (SPPU, Pune)',
       timeline: '2024 - 2027',
       scoreType: 'Pursuing Status',
-      score: 'TE CGPA: 8.57 | SE CGPA: 7.63',
-      achievements: 'Currently pursuing final year (2026-27). Scored 8.57 CGPA (TE Distinction class) and 7.63 CGPA (SE First Class class).'
+      score: 'TE CGPA: 8.15 | SE CGPA: 7.63',
+      achievements: 'Currently pursuing final year (2026-27). Scored 8.15 CGPA (TE Distinction class) and 7.63 CGPA (SE First Class class).'
     },
     {
       degree: 'Diploma in Information Technology',
