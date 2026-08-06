@@ -113,22 +113,6 @@ module.exports = {
       live: '#'
     },
     {
-      id: 'car-buying-selling-system',
-      title: 'E-Car Buying and Selling System',
-      description: 'A responsive PHP and MySQL based car dealership and consumer platform providing seller dashboards, dynamic listing filters, secured user messaging, and detail-rich media galleries.',
-      technologies: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL'],
-      features: [
-        'Dedicated dashboards: Dynamic seller inventory inputs and consumer saved-watchlist lists',
-        'Search & Filtration: Query systems sorted by model, make, fuel, pricing curves, and location',
-        'User authentication: Salted hashes for logging sessions securely',
-        'Media galleries: Sliding vehicle snapshots showing engine and cabin profiles',
-        'Direct link: Contact forms sending vehicle inquiries directly to sellers via mailers'
-      ],
-      image: '/images/project2.jpg',
-      github: 'https://github.com/rohangarje/car-buying-selling-system',
-      live: '#'
-    },
-    {
       id: 'student-placement-predictor',
       title: 'Student Placement Predictor',
       description: 'An AI-powered full-stack web application that predicts student placement outcomes using multiple ML classifiers. Features an interactive performance dashboard with accuracy charts, confusion matrices, feature importance, and model comparison tables.',
@@ -140,7 +124,7 @@ module.exports = {
         'Feature Importance: Identifies top factors like Communication Skills, Projects, and Backlogs',
         'Live deployment: Production app hosted on Railway with real-time inference API'
       ],
-      image: '/images/project3.png',
+      image: '/images/student-placement-predictor.png',
       github: 'https://github.com/rohangarje/StudentPlacementPrediction',
       live: 'https://student-placement-prediction.up.railway.app'
     }
