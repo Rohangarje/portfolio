@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -22,7 +22,6 @@
       min-height: 297mm;
     }
 
-    /* ── Header ─────────────────────────────────── */
     .resume-name {
       text-align: center;
       font-size: 20pt;
@@ -32,19 +31,13 @@
       margin-bottom: 4px;
     }
 
-    .resume-location {
+    .resume-location,
+    .resume-contact {
       text-align: center;
       font-size: 10pt;
       margin-bottom: 2px;
     }
 
-    .resume-contact {
-      text-align: center;
-      font-size: 10pt;
-      margin-bottom: 14px;
-    }
-
-    /* ── Section ─────────────────────────────────── */
     .section {
       margin-bottom: 10px;
     }
@@ -63,13 +56,16 @@
       padding-left: 10px;
     }
 
-    /* ── Objective ───────────────────────────────── */
-    .objective-text {
+    .objective-text,
+    .project-desc,
+    .cert-row,
+    .info-row,
+    .declaration-text {
       font-size: 10.5pt;
       line-height: 1.5;
+      margin-bottom: 6px;
     }
 
-    /* ── Education ───────────────────────────────── */
     .edu-row {
       display: flex;
       justify-content: space-between;
@@ -87,20 +83,23 @@
       white-space: nowrap;
     }
 
-    .edu-inst {
+    .edu-inst,
+    .intern-item,
+    .project-tech {
       font-size: 10pt;
       color: #222;
       margin-bottom: 6px;
     }
 
-    /* ── Skills ──────────────────────────────────── */
-    .skills-table {
+    .skills-table,
+    .projects-table {
       width: 100%;
       border-collapse: collapse;
       font-size: 10.5pt;
     }
 
-    .skills-table td {
+    .skills-table td,
+    .projects-table td {
       padding: 1px 6px 1px 0;
       vertical-align: top;
     }
@@ -111,76 +110,17 @@
       white-space: nowrap;
     }
 
-    /* ── Projects ────────────────────────────────── */
-    .project-title {
+    .project-title,
+    .intern-title {
       font-weight: bold;
       font-size: 10.5pt;
       margin-bottom: 1px;
-    }
-
-    .project-tech {
-      font-style: italic;
-      font-size: 10pt;
-      margin-bottom: 3px;
-    }
-
-    .project-desc {
-      font-size: 10.5pt;
-      line-height: 1.5;
-      margin-bottom: 8px;
     }
 
     .project-desc::before {
       content: '· ';
     }
 
-    /* ── Internships ─────────────────────────────── */
-    .intern-title {
-      font-weight: bold;
-      font-size: 10.5pt;
-      margin-bottom: 2px;
-    }
-
-    .intern-item {
-      font-size: 10.5pt;
-      margin-bottom: 4px;
-    }
-
-    /* ── Certs / Lists ───────────────────────────── */
-    .cert-row {
-      font-size: 10.5pt;
-      margin-bottom: 4px;
-      line-height: 1.5;
-    }
-
-    .cert-row span {
-      margin-right: 6px;
-    }
-
-    /* ── Generic list row ────────────────────────── */
-    .info-row {
-      font-size: 10.5pt;
-      margin-bottom: 3px;
-    }
-
-    .info-row span {
-      margin-right: 10px;
-    }
-
-    /* ── Declaration ─────────────────────────────── */
-    .declaration-text {
-      font-size: 10.5pt;
-      line-height: 1.6;
-    }
-
-    /* ── Print styles ────────────────────────────── */
-    @media print {
-      body { background: #fff; }
-      .page { padding: 16mm 14mm 12mm; max-width: 100%; }
-      .no-print { display: none; }
-    }
-
-    /* ── Print button (screen only) ─────────────── */
     .print-btn {
       position: fixed;
       top: 16px;
@@ -199,10 +139,11 @@
 
     .print-btn:hover { background: #6366f1; }
 
-    /* Hide button when inside iframe */
-    @media print { .print-btn { display: none; } }
-
-    /* When loaded inside iframe, hide floating button (detected via JS below) */
+    @media print {
+      body { background: #fff; }
+      .page { padding: 16mm 14mm 12mm; max-width: 100%; }
+      .no-print { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -210,7 +151,6 @@
 <button class="print-btn no-print" id="printBtn" onclick="window.print()">🖨 Print / Save as PDF</button>
 
 <script>
-  // Hide floating print button when displayed inside the portfolio iframe
   if (window.self !== window.top) {
     document.getElementById('printBtn').style.display = 'none';
   }
@@ -218,127 +158,112 @@
 
 <div class="page">
 
-  <!-- ══ HEADER ══════════════════════════════════════ -->
   <div class="resume-name">Rohan Garje</div>
-  <div class="resume-location">Maharashtra, India</div>
-  <div class="resume-contact">+91 8698420138 &nbsp;|&nbsp; rohangarje95@gmail.com &nbsp;|&nbsp; linkedin.com/in/rohan-garje-58a6b5337</div>
+  <div class="resume-location">Full Stack Developer | C# | .NET | ADO.NET | MS SQL | ML & DL | Java (DSA) | Data Analyst</div>
+  <div class="resume-contact">Amrutvahini College Of Engineering Sangamner &nbsp;|&nbsp; Savitribai Phule Pune University</div>
+  <div class="resume-contact">rohangarje95@gmail.com &nbsp;|&nbsp; https://github.com/Rohangarje &nbsp;|&nbsp; linkedin.com/in/rohan-garje-58a6b5337</div>
 
-  <!-- ══ OBJECTIVE ═══════════════════════════════════ -->
   <div class="section">
-    <div class="section-title">Objective</div>
+    <div class="section-title">Professional Summary</div>
     <div class="section-body">
-      <p class="objective-text">Motivated IT engineering student seeking opportunities in Software Development and Artificial Intelligence to apply technical skills and contribute to innovative projects.</p>
+      <p class="objective-text">Information Technology student with a CGPA of 8.15/10 and practical experience in Full Stack Development, C#, .NET, ADO.NET, MS SQL, Python, Java (DSA), ML & DL and Data Analysis through internships and projects. Skilled in building scalable web applications, REST APIs, and database-driven solutions. Cummins Scholar of Cummins Technologies India with strong problem-solving, leadership, and teamwork abilities, seeking a Software Engineer or Full Stack Developer role.</p>
     </div>
   </div>
 
-  <!-- ══ EDUCATION ═══════════════════════════════════ -->
+  <div class="section">
+    <div class="section-title">Experience</div>
+    <div class="section-body">
+      <div class="intern-title">Edunet Foundation | Full Stack Developer Intern | Certificate | GitHub</div>
+      <div class="intern-item">Jan 2026 – Feb 2026</div>
+      <div class="intern-item">Django, Python, MySQL, HTML, CSS, JavaScript, AI Tools</div>
+      <p class="project-desc">Developed a full-stack Online Interview Chetting Detection System Using Django, MySQL, HTML, CSS, and JavaScript, implementing that detects suspicious candidate behavior and helps ensure fair, secure, and trustworthy online interviews, and scalable backend APIs.</p>
+
+      <div class="intern-title">MATLAB | Machine Learning | Certificate | GitHub</div>
+      <div class="intern-item">Mar 2025 – May 2025</div>
+      <div class="intern-item">Python, Machine Learning, Scikit-learn, Pandas, NumPy, FastAPI, React.js, Vite, REST API</div>
+      <p class="project-desc">Developed a machine learning-based Student Placement Prediction System that analyzes academic and student-related factors to predict placement outcomes and provide data-driven insights for improving employability.</p>
+    </div>
+  </div>
+
   <div class="section">
     <div class="section-title">Education</div>
     <div class="section-body">
       <div class="edu-row">
-        <span class="edu-degree">B.E. (Information Technology)</span>
-        <span class="edu-score">Pursuing &nbsp;&nbsp; SGPA: 8.51</span>
+        <span class="edu-degree">Bachelor of Engineering in Information Technology</span>
+        <span class="edu-score">2024–2027 &nbsp; CGPA: 8.15 / 10.0</span>
       </div>
-      <div class="edu-inst">Amrutvahini College of Engineering, Sangamner (SPPU)</div>
+      <div class="edu-inst">Amrutvahini College of Engineering, Sangamner (Savitribai Phule Pune University)</div>
 
       <div class="edu-row">
-        <span class="edu-degree">Diploma (IT) – Government Polytechnic Ambad (MSBTE)</span>
-        <span class="edu-score">83.94% (2024)</span>
+        <span class="edu-degree">Polytechnic Diploma</span>
+        <span class="edu-score">2022–2024 &nbsp; PER: 83.93%</span>
       </div>
+      <div class="edu-inst">Government Polytechnic Ambad, Jalna (MSBTE)</div>
     </div>
   </div>
 
-  <!-- ══ TECHNICAL SKILLS ════════════════════════════ -->
   <div class="section">
-    <div class="section-title">Technical Skills</div>
+    <div class="section-title">Projects</div>
+    <div class="section-body">
+      <div class="project-title">Online Interview Chetting Detection System | GitHub</div>
+      <div class="project-tech">Django, Python, mySQL, HTML, CSS, Javascript, AI Tools</div>
+      <p class="project-desc">Developed an AI-powered Interview Integrity Monitoring System that analyzes candidate behavior and activity in real time to detect potential malpractice, enhance interview security, and promote fair and reliable online assessments.</p>
+
+      <div class="project-title">Student Placement Prediction System | GitHub</div>
+      <div class="project-tech">Python, Machine Learning, Scikit-learn, Pandas, NumPy, FastAPI, React.js, Vite, REST API</div>
+      <p class="project-desc">Developed a machine learning-based Student Placement Prediction System that analyzes academic and student-related factors to predict placement outcomes and provide data-driven insights for improving employability.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Skills</div>
     <div class="section-body">
       <table class="skills-table">
         <tr>
           <td>Languages</td>
-          <td>Java, Python, C++, JavaScript, PHP</td>
+          <td>C#, Java, Python, JavaScript</td>
         </tr>
         <tr>
-          <td>Web</td>
-          <td>HTML, CSS, Bootstrap, Django</td>
+          <td>Web Development</td>
+          <td>.NET, ADO.NET, Django, RestAPI, HTML5, CSS3</td>
         </tr>
         <tr>
-          <td>Database</td>
-          <td>MySQL, MongoDB</td>
+          <td>Databases</td>
+          <td>MySQL, MS SQL, MongoDB (Mongoose)</td>
         </tr>
         <tr>
-          <td>Concepts</td>
-          <td>DSA, Machine Learning Basics</td>
+          <td>Tools</td>
+          <td>Git, GitHub, Docker, Power BI, Jupyter Notebook</td>
+        </tr>
+        <tr>
+          <td>Core Concepts</td>
+          <td>Data Structures & Algorithms, OOP, OS, CN, DBMS</td>
+        </tr>
+        <tr>
+          <td>Soft Skills</td>
+          <td>Leadership, Problem Solving, Communication, Adaptability</td>
         </tr>
       </table>
     </div>
   </div>
 
-  <!-- ══ PROJECTS ════════════════════════════════════ -->
   <div class="section">
-    <div class="section-title">Projects</div>
+    <div class="section-title">Achievements</div>
     <div class="section-body">
-      <div class="project-title">Online Interview Cheating Detection System</div>
-      <div class="project-tech">Python, Django, MySQL</div>
-      <p class="project-desc">AI-based interview monitoring system for detecting suspicious behaviour. Built using HTML, CSS, JavaScript, Python and MySQL.</p>
-
-      <div class="project-title">Car Buying and Selling Web Application</div>
-      <div class="project-tech">HTML, Javascript, PHP, MySQL</div>
-      <p class="project-desc">Developed a responsive vehicle buying and selling platform. Implemented search functionality and backend database management.</p>
+      <div class="cert-row">Cummins Scholar | Certificate: Selected in the Top 5 from our college by Cummins Technologies India.</div>
+      <div class="cert-row">Checkmarx Codebashing Certified | Certificate: Application Security, API Security, Frontend Security, Backend Security.</div>
+      <div class="cert-row">MATLAB Certified | Certificate: MATLAB Onramp, Explore Data with MATLAB Plots.</div>
+      <div class="cert-row">EduSkill AICTE | Certificate: Completed a Full Stack Java Development certification.</div>
+      <div class="cert-row">Student Co-ordinator | Godrej Infotech Centum Foundation’s Data Analysis Course.</div>
     </div>
   </div>
 
-  <!-- ══ INTERNSHIPS ═════════════════════════════════ -->
-  <div class="section">
-    <div class="section-title">Internships</div>
-    <div class="section-body">
-      <div class="intern-title">Android Development Industrial Training</div>
-      <div class="intern-item"><strong>Full Stack Web Development with AI Tools</strong> – Next Gen Employability Program (2025–2026)</div>
-    </div>
-  </div>
-
-  <!-- ══ CERTIFICATES / REWARDS ══════════════════════ -->
-  <div class="section">
-    <div class="section-title">Certificates Rewards</div>
-    <div class="section-body">
-      <div class="cert-row">
-        <span>Cummins Scholar 2025</span> —
-        <span> AI Skills Passport</span> —
-        <span> MATLAB Onramp</span> —
-        <span> AI Skill passport Offered By EY And Microsoft</span>
-      </div>
-      <div class="cert-row">
-        <span>Machine Learning Onramp</span> —
-        <span> Google Android Development</span> —
-        <span> Checkmarx Codebashing course in .NET</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══ STRENGTH ════════════════════════════════════ -->
   <div class="section">
     <div class="section-title">Strength</div>
     <div class="section-body">
-      <div class="info-row">
-        <span>Quick Learner</span> — <span> Listening</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══ LANGUAGES ═══════════════════════════════════ -->
-  <div class="section">
-    <div class="section-title">Languages</div>
-    <div class="section-body">
-      <div class="info-row">
-        <span>English</span> — <span> Hindi</span> — <span> Marathi</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══ DECLARATION ═════════════════════════════════ -->
-  <div class="section">
-    <div class="section-title">Declaration</div>
-    <div class="section-body">
-      <p class="declaration-text">I hereby declare that the above information is true and correct to the best of my knowledge.</p>
+      <div class="info-row">Problem-solving</div>
+      <div class="info-row">Quick learner</div>
+      <div class="info-row">Teamwork</div>
     </div>
   </div>
 
